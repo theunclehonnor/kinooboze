@@ -1,7 +1,7 @@
 <?php
 global $data;
-for ($i=0;$i<count($data);$i++) {
-	echo '<div class="posters-content__poster">
+for ($i=0; $i<count($data); $i++) {
+    echo '<div class="posters-content__poster">
 			<div class="posters-content__img-poster transation" onclick="getPageObzor(' . $data[$i]['idObzor'] . ');">
 				<img src=' . $data[$i]['poster'] . ' alt="Постер" class="posters-content__img"/>
 				<div class="posters-content__info">
@@ -26,4 +26,3 @@ for ($i=0;$i<count($data);$i++) {
 			</ul>
 		</div>';
 }
-?>

@@ -1,5 +1,5 @@
 <?php
-class Account 
+class Account
 {
 	public $idAccount;
 	public $email;
@@ -50,7 +50,7 @@ class Account
 	{
 		global $pdo;
 		$this->generateHashPassword();
-		$sql = 'INSERT INTO account(email, password, name, "personalData", moderator) 
+		$sql = 'INSERT INTO account(email, password, name, "personalData", moderator)
 		VALUES(:email, :password, :name, :personalData, :moderator)';
 		$params = [
 			':email' =>  $this->email,
@@ -80,5 +80,5 @@ class Account
 			return (true);
 		else
 			return (false);
-	} 
+	}
 }

@@ -1,6 +1,6 @@
 <?php
-require_once ('connect.php');
-require ('../../lib/account.php');
+require_once('connect.php');
+require('../../lib/account.php');
 session_start();
 
 try {
@@ -8,8 +8,9 @@ try {
     $user->email = trim($_POST['email']);
     $user->password = trim($_POST['password']);
     $tempUser = $user->checkedEmail();
-    if(!$tempUser)
+    if (!$tempUser) {
         throw new Exception('Пользователя с данным логином в системе не найден.');
+    }
     if ($user->verifyPassword($tempUser->password)) { // сравниваем зашифрованный пароль
         $tempUser->setIdAccount();
         $_SESSION['user'] = $tempUser;
@@ -17,12 +18,11 @@ try {
         header('Location: ../index.php'); // Редирект на главную
         die();
     } else {
-        throw new Exception ('Неверный пароль');
+        throw new Exception('Неверный пароль');
     }
 } catch (Exception $e) {
     $_SESSION['message'] = $e->getMessage();
     $_SESSION['email'] = $user->email;
-	header('Location: ../autorization.php'); // Редирект на авторазацию
-	die();
+    header('Location: ../autorization.php'); // Редирект на авторазацию
+    die();
 }
-?>

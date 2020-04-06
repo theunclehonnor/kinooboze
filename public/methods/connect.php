@@ -13,7 +13,11 @@ while (!is_file($path)) {
 
 $ini_array = parse_ini_file($path, true);
 
-if (!isset($ini_array['db']['host']) || !isset($ini_array['db']['name']) || !isset($ini_array['db']['login']) || !isset($ini_array['db']['password'])) {
+if (!isset($ini_array['db']['host']) ||
+    !isset($ini_array['db']['name']) ||
+    !isset($ini_array['db']['login']) ||
+    !isset($ini_array['db']['password'])
+    ) {
     print "Ошибка!: Файл конфигураций повреждён!" . "<br/>";
     die();
 }

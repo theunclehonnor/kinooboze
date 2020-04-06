@@ -2,9 +2,8 @@
 $comment = new Comment();
 $comments = $comment->getAllComments($_SESSION['obzor']->idObzor);
 
-foreach ($comments as $item) 
-{
-	echo '<div class="comment-users">
+foreach ($comments as $item) {
+    echo '<div class="comment-users">
 			<div class="comment-users__img">
 			<p class="comment-users__name">'. $item->name . '</p>
 			</div>
@@ -14,10 +13,9 @@ foreach ($comments as $item)
 					<div class="comment-users__line"></div>
 				</div>
 				<div class="comment-users__textarea">
-					<textarea name="textComment" maxlength=350 rows="5" id="textComment" class="comment-users__textarea-redacted" readonly>' 
-					. $item->textComment . '</textarea>
+					<textarea name="textComment" maxlength=350 rows="5" id="textComment" 
+					class="comment-users__textarea-redacted" readonly>' . $item->textComment . '</textarea>
 				</div>
 			</div>
 		</div>';
 }
-?>
