@@ -2,3 +2,4 @@
 *.css.map
 /public/sass/*
 /public/img/posters/*
+.vs

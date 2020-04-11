@@ -9,7 +9,7 @@ $_SESSION['test_user'] = $user;
 
 try {
     if (!empty($user->email) && !empty($user->password) && !empty($user->name) && $user->personalData) {
-        if (!preg_match("/^[а-яА-я0-9_\-%\s]+$/iu", $user->name)) {
+        if (!preg_match("/^[а-яА-я_\-%\s]+$/iu", $user->name)) {
             throw new Exception(' В имени допустимы только русские буквы, пробелы и дефисы!');
         }
         if (!filter_var($user->email, FILTER_VALIDATE_EMAIL)) {
